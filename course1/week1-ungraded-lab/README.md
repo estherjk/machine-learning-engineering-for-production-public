@@ -61,6 +61,65 @@ conda activate mlep-w1-lab
 ```
  
 At this point, you will do all your libraries installation and work in this environment. So, whenever working on this ungraded lab, check the mlep-w1-lab environment is active.
+
+### 1a. For M1 Macs
+
+#### TensorFlow
+
+Reference: [Getting Started with tensorflow-metal PluggableDevice](https://developer.apple.com/metal/tensorflow-plugin/)
+
+Install Tensorflow dependencies:
+
+```bash
+conda install -c apple tensorflow-deps
+```
+
+Install base TensorFlow:
+
+```bash
+python -m pip install tensorflow-macos
+```
+
+Install tensorflow-metal plugin:
+
+```bash
+python -m pip install tensorflow-metal
+```
+
+#### OpenCV
+
+Reference: [How to Safely Install OpenCV on the Mac M1](https://blog.roboflow.com/m1-opencv)
+
+Add [conda-forge](https://conda-forge.org/) to your `.condarc` config file:
+
+```bash
+conda config --add channels conda-forge
+```
+
+Install OpenCV:
+
+```bash
+conda install -c conda-forge opencv===4.5.3
+```
+
+Test that OpenCV has installed correctly by checking the version:
+
+```bash
+python -c "import cv2; print(cv2.__version__)" 
+```
+
+This should print out the installed OpenCV Version:
+
+```
+4.5.3
+```
+
+#### Modifying `requirements.txt`
+
+Comment out the following dependencies in `requirements.txt`:
+
+* `opencv-python-headless`
+* `tensorflow`
  
 ### 2. Installing dependencies using PIP 
  
